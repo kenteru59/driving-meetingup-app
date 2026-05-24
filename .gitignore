@@ -1,0 +1,102 @@
+# =============================================================================
+# driving-meetingup-app — .gitignore
+# PUBLIC repository — secrets / PII must NEVER be committed.
+# The secret-guard hook also blocks writing these patterns, but defense-in-depth.
+# =============================================================================
+
+# === Secrets & local config (CRITICAL) =======================================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+*.jks
+*.keystore
+secrets/
+**/credentials.json
+**/credentials.csv
+service-account*.json
+gcp-*-key.json
+aws-credentials*
+.aws/
+keystore.properties
+key.properties
+local.properties
+signing.properties
+gradle.properties.local
+# google-services.json: not strictly secret (public Firebase config) but
+# contains your app identifiers — review before committing case by case.
+# google-services.json
+
+# === Android / Gradle ========================================================
+.gradle/
+build/
+**/build/
+captures/
+.cxx/
+*.apk
+*.aab
+*.aar
+*.ap_
+*.dex
+*.class
+release/
+proguard/
+*.hprof
+
+# === IDE / Editors ===========================================================
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.swp
+*.swo
+*~
+
+# === OS ======================================================================
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# === Logs & temp =============================================================
+*.log
+*.tmp
+*.bak
+gradle-test-err.log
+gradle-test-out.log
+
+# === Claude Code local-only ==================================================
+.claude/settings.local.json
+.claude/.cache/
+
+# === Python (spec-kit tooling) ===============================================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+
+# === Node (if web tooling added later) =======================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# === Terraform / CDK (future AWS infra) ======================================
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+.terraform/
+cdk.out/
+cdk.context.json
